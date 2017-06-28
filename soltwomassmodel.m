@@ -56,6 +56,17 @@ r = [y1l
           -(r2r*y2r+k2r*x2r+theta(-a(a20,x2r,x2l,l),a10)*c2r*a(a20,x2r,x2l,l)/2/l+kcr*(x2r-x1r))/m2r             
           ];
 
+
+% r = [y1l
+%           -(r1l*y1l+k1l*x1l+theta(-a(a10,x1l,x1r,l),a10)*c1l*a(a10,x1l,x1r,l)/2/l+kcl*(x1l-x2l)-l*d1*P1(a(a10,x1l,x1r,l),a(a20,x2l,x2r,l),Ps,a10))/m1l
+%           y2l
+%           -(r2l*y2l+k2l*x2l+theta(-a(a20,x2l,x2r,l),a10)*c2l*a(a20,x2l,x2r,l)/2/l+kcl*(x2l-x1l))/m2l
+%           y1r
+%           -(r1r*y1r+k1r*x1r+theta(-a(a10,x1r,x1l,l),a10)*c1r*a(a10,x1r,x1l,l)/2/l+kcr*(x1r-x2r)-l*d1*P1(a(a10,x1r,x1l,l),a(a20,x2r,x2l,l),Ps,a10))/m1r
+%           y2r
+%           -(r2r*y2r+k2r*x2r+theta(-a(a20,x2r,x2l,l),a10)*c2r*a(a20,x2r,x2l,l)/2/l+kcr*(x2r-x1r))/m2r             
+%           ];
+      
 function th = theta(x,x0)
 if x>0
 	th = tanh(50*(x/x0));
@@ -68,5 +79,5 @@ r = a0+l*(xl+xr);
     
 function r = P1(a1,Ps,amin,a0)
 r = Ps*(1-max(amin,0)*(amin/a1)^2)*theta(a1,a0);
-% function r = P1(Ps,Pe,a1,amin)
-% r = Ps + (Ps-Pe)*(a1/amin)^2;
+% function r = P1(a1,a2,Ps,a0)
+% r = Ps*(1-theta(a2,a0)*(a2/a1)^2);
